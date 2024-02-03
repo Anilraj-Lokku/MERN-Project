@@ -8,8 +8,7 @@ const Place = require("./models/Place.js");
 const Booking = require("./models/Booking.js");
 const cookieParser = require("cookie-parser");
 const imageDownloader = require("image-downloader");
-const { PutObjectCommand } = require("@aws-sdk/client-s3");
-const { S3Client } = require("@aws-sdk/client-s3");
+const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
 const fs = require("fs");
 const multer = require("multer");
 const mime = require("mime-types");
@@ -153,10 +152,10 @@ app.post(
   photosMiddleware.array("photos", 100),
   async (req, res) => {
     const uploadedFiles = [];
-    for (const file of req.files) {
-      const { path, originalname, mimetype } = file;
+    for (let i = 0; i < req.files.length; i++) {
+      const { path, originalname, mimetype } = req.files[i];
       const url = await uploadToS3(path, originalname, mimetype);
-      uploadedFiles.push(url); // Corrected line
+      uploadedFiles.push(url);
     }
     res.json(uploadedFiles);
   }
