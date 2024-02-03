@@ -27,7 +27,7 @@ app.use("/uploads", express.static(__dirname + "/uploads"));
 app.use(
   cors({
     credentials: true,
-    origin: "https://mern-project-41muf052b-anilraj-lokkus-projects.vercel.app",
+    origin: "http://localhost:5173",
   })
 );
 

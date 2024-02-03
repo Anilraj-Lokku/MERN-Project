@@ -4,9 +4,9 @@
     "framework": "vite",
     "rewrites": [
       {
-        "source": "Airnab-Clone/api/(.*)",
-        "destination": "Airnab-Clone/api/index.js"
+        "source": "/api/(.*)",
+        "destination": "/api/index.js"
       },
-      {"source": "/(.*)", "destination": "/"}
+      
     ]
   }
