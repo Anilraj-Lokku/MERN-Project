@@ -27,7 +27,7 @@ app.use("/uploads", express.static(__dirname + "/uploads"));
 app.use(
   cors({
     credentials: true,
-    origin: "https://mern-project-93bvd2reo-anilraj-lokkus-projects.vercel.app",
+    origin: "https://mern-project-41muf052b-anilraj-lokkus-projects.vercel.app",
   })
 );
 
@@ -65,7 +65,6 @@ function getUserDataFromReq(req) {
 
 app.get("/api/test", (req, res) => {
   mongoose.connect(process.env.MONGO_URL);
-
   res.json("Test Successful");
 });
 
