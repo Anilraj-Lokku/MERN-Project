@@ -1,7 +1,7 @@
 export default function CustomImage({ src, ...rest }) {
   src =
-    src && src.includes("http://")
+    src && src.startsWith("http")
       ? src
-      : "http://localhost:3000/uploads/" + src;
+      : "https://anil-booking-app.vercel.app/uploads/" + src;
   return <img {...rest} src={src} alt={""} />;
 }
