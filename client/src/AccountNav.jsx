@@ -1,13 +1,16 @@
 import { Link, useLocation } from "react-router-dom";
 
 export default function AccountNav() {
+  // Get the current pathname using the useLocation hook from react-router-dom
   const { pathname } = useLocation();
   let subpage = pathname.split("/")?.[2];
   if (subpage === undefined) {
     subpage = "profile";
   }
+    // Function to generate dynamic classes for the links based on the current subpage
   function linkClasses(type = null) {
     let classes = "inline-flex gap-1 py-2 px-6 rounded-full";
+     // Add background color based on whether the link matches the current subpage
     if (type === subpage) {
       classes += " bg-primary text-white ";
     } else {
